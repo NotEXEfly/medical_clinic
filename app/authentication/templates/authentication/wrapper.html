@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}Auth{% endblock %}</title>
+  <!-- Загрузка статики -->
+  {% load static %}
+  <link rel="icon" href="{% static 'images/logo.png' %}">
+  <link href="{% static 'css/normalize.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body class="auth">
+  <div class="auth-header">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'images/logo.png' %}" alt="" class="site-logo">
+        {{ site_name }}
+      </a>
+      {% if request.path == "/login/" %}
+      <a href="/signup" class="btn dark-btn">Регистрация</a>
+      {% else %}
+      <a href="/login" class="btn dark-btn">Вход</a>
+      {% endif %}
+    </div>
+  </div>
+        
+  {% block content %}
+  {% endblock %}
+  
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/reg.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "authentication/wrapper.html" %}
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+
+<section class="form-box">
+  <div class="container">
+    {% if user.is_authenticated %}
+    <div class="user-auth">
+      <p>Вы уже вошли как <a href="/lk/">{{ user.profile.get_only_firstname }}</a></p>
+      <a href="/logout" class="btn green-btn">Выйти</a>
+    </div>
+    {% else %}
+    <div class="registration">
+      <div class="title">Вход</div>
+      {% if log_error %}
+      <div class="text" style="display: block">
+        <p>{{ log_error }}</p>
+      </div>
+      {% endif %}
+      <form action="" method="post">
+        {% csrf_token %} 
+        <label>Login</label>
+        <input type="text" placeholder="login" name="login">
+        <label>Пароль</label>
+        <input type="password" placeholder="*********" name="password" autocomplete="off">
+        <button type="submit" class="btn green-btn" autocomplete="off">Войти</button>
+      </form>
+      <span>Еще не зарегистрированы? <a href="/signup">Регистрация</a></span>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block content %}
+<header class="header">
+    <div class="container">
+
+      <nav class="navbar">
+        <div class="logotip">
+          <img src="static/images/logo.png" alt="logo">
+          <a class="navbar-brand" href="/">{{ site_name }}</a>
+        </div>
+          <div class="buttnos-container">
+            {% if user.is_authenticated %}
+            <a href="/logout" class="btn">Выход</a>
+            {% else %}
+            <a href="/login" class="btn">Вход</a>
+            <a href="/signup" class="btn green-btn">Регистрация</a>
+            {% endif %}
+          </div>
+      </nav>
+      
+      <div class="center-content">
+          <span class="title">Запись на приём <nobr>к врачу</nobr></span>
+          <p>Записаться на приём к врачу быстро, просто и удобно.</p>
+          {% if user.is_authenticated %}
+          <a href="/lk/record" class="btn green-btn">Записаться</a>
+          <a href="/lk" class="btn">Личный кабинет</a>
+          {% else %}
+          <a href="/lk/schedule/" class="btn green-btn">Расписание врачей</a>
+          <a href="/login" class="btn">Войти на сайт</a>
+          {% endif %}
+      </div>
+
+      <ul class="site-options">
+        <li><i class="ico btc-ico"></i>Запись к врачу</li>
+        <li><i class="ico litecoin-ico"></i>Расписание врачей</li>
+        <li><i class="ico wallet-ico"></i>Медицинские организации</li>
+        <li><i class="ico cog-ico"></i>Обратная связь</li>
+      </ul>
+
+    </div> 
+  </header>
+
+
+  <section class="how-it-work">
+    <div class="container">
+      
+      <h2>Как это работает?</h2>
+      <div class="row">
+
+        <div class="col">
+          <img src="static/images/how-ico1.png" alt="">
+          <span>Запись к врачу</span>
+          <p>Запись на плановый прием к врачу. Требуется авторизация.</p>
+        </div>
+
+        <div class="col">
+          <img src="static/images/how-ico2.png" alt="">
+          <span>Расписание врачей</span>
+          <p>Расписание врачей государственных и муниципальных клиник</p>
+        </div>
+
+        <div class="col">
+          <img src="static/images/how-ico3.png" alt="">
+          <span>Медицинские организации</span>
+          <p>Государственные и муниципальные медицинские организации региона</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row clearfix">
+
+        <div class="description">
+          <p>ЧАПОЛС - Единый медицинский портал предназначен для увеличения доступности медицинской помощи жителям Элисты. Портал реализует один из видов оказания гражданам медицинских услуг - "Запись на прием к врачу" в электронном виде.</p>
+        </div>
+
+        <div class="contacts">
+            <div class="contact-div">
+              <span class="phone soc">+7 (999) 999-99-99</span>
+              <span class="mail soc">med-clinic08@mail.ru</span>
+            </div>
+
+            <div class="contact-div">
+              <span class="telegram soc">@CHAPOLS</span>
+              <span class="skype soc">CHAPOLS</span>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    <div class="container">
+      <div class="row clearfix">
+        <div>
+          <p>ЭПТК - 2018</p>
+        </div>
+        <div>
+          <span>Мы в соцсетях:</span>
+          <a href="#"><img src="static/images/vk.png" alt=""></a>
+          <a href="#"><img src="static/images/facebook.png" alt=""></a>
+          <a href="#"><img src="static/images/twitter.png" alt=""></a>
+          <a href="#"><img src="static/images/youtube.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

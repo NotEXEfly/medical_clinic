@@ -1,0 +1,42 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}О услугах{% endblock %}
+
+{% block content %}
+
+  <section class="lk-content">
+    <div class="wrap rec-info">
+      <h2 class="title">Запись на приём</h2>
+      <div class="rec-description">
+        <ul class="allOk">
+          <li>Услуга является бесплатной.</li>
+          <li>Запись к врачу производится на неделю вперёд.</li>
+          <li>Обновление расписаний врачей на сайте происходит ежедневно в 00:00.</li>
+          <li>Услуга предназначена для записи пациентов на ПЛАНОВЫЙ прием к врачам.</li>
+          <li>В случае отсутствия записи, в приёме Вам могут отказать.</li>
+          <li>Вы можете записать к врачу не только себя, но и своих близких.</li>
+        </ul>
+        {% if not user.is_authenticated %}
+        <div class="pls-auth">Для доступа к услуге авторизуйтесь, пожалуйста.</div>
+        {% endif %}
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- модалка на подтверждение отмены записи -->
+  <div id="annulment-dialog" style="display: none;">
+    <span class="close"></span>
+    <h1>Отмена записи</h1>
+    <p>В случае отмены записи, это время становиться доступно всем желающим.</p>
+    <p>
+      Вы уверены что хотите отменить запись?
+    </p>
+    <div class="separator20"></div>
+    <p>
+      <a href="javascript:;" class="btn green-button" id="annulment-button">Подтвердить</a>
+      <a href="javascript:;" class="btn gray-button" id="modal-close-button">Отменить</a>
+    </p>	
+  </div>
+</div>
+
+{% endblock %}

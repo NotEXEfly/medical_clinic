@@ -1,0 +1,81 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}Расписание врачей{% endblock %}
+
+{% block content %}
+
+  <section class="lk-content">
+	  <div class="wrap">
+			<h2 class="title">Расписание врача</h2>
+			<div class="add-balance-info">
+				<p>Текущий доктор: <a href="info">{{doctor.name}}</a></p>
+			</div>
+			<div class="withdrawal-operation">
+				<div class="table">
+					<div class="head">
+						<h2 class="head-title">Приём длится {{ time_step }} минут</h2>
+					</div>
+					<table class="schedule">
+						<thead>
+							<tr>
+								<td></td>	
+								<td>Понедельник</td>
+								<td>Вторник</td>
+								<td>Среда</td>
+								<td>Четверг</td>
+								<td>Пятница</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Начало приёма</td>
+								{% for el in start_add %}
+								<td>{{ el }}</td>
+								{% endfor %}
+							</tr>
+							<tr>
+								<td>Конец приёма</td>
+								{% for el in end_add %}
+								<td>{{ el }}</td>
+								{% endfor %}
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+	  </div>
+	</section>
+	<!-- Модалка -->
+	<div id="dialog">
+		<span class="close"></span>
+		<h1>{{user.profile.fio}}
+			<br>
+			<small>Записан к врачу</small>
+		</h1>
+		<p>
+			<span class="label">Специальность:</span>
+			<span class="labelVal">{{doctor.specialty}}</span>
+		</p>
+		<p>
+			<span class="label">Специалист:</span>
+			<span class="labelVal">{{doctor.name}}</span>
+		</p>
+		<p>
+			<span class="label">Дата и время:</span>
+			<span class="record-datetime">фыввыф</span>
+		</p>
+		<hr>
+		<div id="agree-msg">
+			<p><input type="checkbox" id="agree"><label class="agree space" for="agree">Я согласен с правилами</label></p>
+		</div>
+
+		<div class="separator20"></div>
+		<p>
+			<a href="javascript:;" class="btn record-button disabled">Подтвердить</a>
+			<a href="javascript:;" class="btn record-close-button">Отменить</a>
+		</p>	
+	</div>
+
+</div>
+
+{% endblock %}

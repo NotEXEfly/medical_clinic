@@ -1,0 +1,31 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}Выбор врача{% endblock %}
+
+{% block content %}
+
+  <section class="lk-content">
+   <div class="wrap">
+
+      <h2 class="title">Поиск врача</h2>
+      <div class="doc-input">
+        <input type="text" placeholder="Введите ФИО или специальность врача" id="doc_search">
+      </div>
+        
+      <h2 class="title">Специалисты</h2>
+      <div class="add-balance-info">
+        <p>Выбрав нужного специалиста вы сможете записать к нему на приём или посмотреть расписание.</p>
+      </div>
+      
+      <div class="home-panel">
+          {% for special in specialitys %}
+            <a class="item" href="{{special.id}}/">
+              <span class="title">{{special.speciality}}</span>
+            </a>
+          {% endfor %}
+      </div>
+
+    </div>
+	</section>
+</div>
+
+{% endblock %}

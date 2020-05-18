@@ -1,0 +1,68 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}Личный кабинет{% endblock %}
+
+{% block content %}
+  <section class="lk-content">
+   <div class="wrap">
+     <div id="test"></div>
+    <h2 class="title">Добро пожаловать в личный кабинет</h2>
+      <div class="add-balance-info">
+        <p>Здесь отображаются ваши данные.</p>
+      </div>
+      <div class="user-profile">
+          <div class="user-avatar">
+            {% if user.profile.avatar %}
+            <img src="{{ user.profile.avatar.url }}">
+            {% else %}
+            <img src="/media/default.png">
+            {% endif %}
+          </div>
+          
+        <p><span class="info-label">Login:</span> {{ user.username }}</p>
+        <p><span class="info-label">Email:</span> {{ user.email }}</p>
+        <p><span class="info-label">Фамилия:</span> {{ user.profile.get_only_surname }}</p>
+        <p><span class="info-label">Имя:</span> {{ user.profile.get_only_firstname }}</p>
+        <p><span class="info-label">Отчество:</span> {{ user.profile.get_only_patronymic }}</p>
+        <a href="#" id="change_pass_link">Смена пароля</a>
+        <div id="change_pass_block">
+          
+          {% if new_pass_form.errors %}
+          <div class="error-block alert alert-danger">
+            {% for error in new_pass_form.old_password.errors %}
+              <p>{{ error|escape }}</p>
+            {% endfor %}
+            {% for error in new_pass_form.new_password1.errors %}
+              <p>{{ error|escape }}</p>
+            {% endfor %}
+            {% for error in new_pass_form.new_password2.errors %}
+              <p>{{ error|escape }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+          
+          <form action="" method="POST">
+            {% csrf_token %}
+            <p>
+              <label for="id_old_password">Старый пароль*</label>
+              {{ new_pass_form.old_password }}
+            </p>
+            <p>
+              <label for="id_new_password1">Новый пароль*</label>
+              {{ new_pass_form.new_password1 }}
+            </p>
+            <p>
+              <label for="id_new_password2">Новый пароль еще раз*</label>
+              {{ new_pass_form.new_password2 }}
+            </p>
+            <input type="submit" value="Сменить пароль">
+          </form>
+        </div>
+        {% if succses_message %}
+          <div class="succsec-block alert alert-success">{{succses_message}}</div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

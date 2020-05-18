@@ -1,0 +1,36 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}Запись на приём{% endblock %}
+
+{% block content %}
+
+  <section class="lk-content">
+	  <div class="wrap">
+		  <h2 class="title">Записаться на приём к <span>{{speciality}}у</span></h2>
+		  <div class="add-balance-info">
+			<p>Выберите врача и нажмите на кнопку (записаться), затем выберете время.</p>
+		  </div>
+		  <div class="table">
+			<table>
+			  <thead>
+				<td>ФИО</td>
+				<td>Режим работы</td>
+				<td>Расписание</td>
+				<td>Карточка врача</td>
+			  </thead>
+			  <tbody>
+					{% for doc in all_doctors %}
+					<tr>
+						<td>{{doc.name}}</td>
+						<td>{{doc.start_day_work}} - {{doc.end_day_work}}</td>
+						<td><a href="{{ doc.user.id }}/timetable" class="edit">Записаться</a></td>
+						<td><a href="{{ doc.user.id }}/info" class="card">О враче</a></td>
+					</tr>
+					{% endfor %}
+			  </tbody>
+			</table>
+		  </div>
+	  </div>
+	</section>
+</div>
+
+{% endblock %}

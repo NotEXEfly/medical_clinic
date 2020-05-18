@@ -1,0 +1,29 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}Карточка врача{% endblock %}
+
+{% block content %}
+  <section class="lk-content">
+   <div class="wrap">
+    <h2 class="title">Карточка врача</h2>
+      <div class="add-balance-info">
+        <p>Здесь отображаются данные врача.</p>
+      </div>
+      <div class="doc-profile">
+        <div class="doc-avatar">
+          <img src="{{ doctor.avatar.url }}">
+        </div>
+        <div class="doc-info">
+          <div class="doc-name">{{ doctor.name }}</div>
+          {% comment %} get_fieldname_display - полное отображение из кортежа {% endcomment %}
+          <p><span class="info-label">Сециальность:</span> {{ doctor.specialty }}</p>
+          <p><span class="info-label">Начало работы:</span> {{ doctor.get_start_day_work_display }}</p>
+          <p><span class="info-label">Конец работы:</span> {{ doctor.get_end_day_work_display }}</p>
+          <p><span class="info-label">Кабинет:</span> {{ doctor.room }}</p>
+          <a href="timetable" class="gr-btn">Расписание</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

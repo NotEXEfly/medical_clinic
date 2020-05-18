@@ -1,0 +1,111 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}История{% endblock %}
+
+{% block content %}
+
+  <section class="lk-content">
+   <div class="wrap">
+    <h2 class="title">Личный кабинет - мои записи</h2>
+      <div class="add-balance-info">
+        <p>Здесь отображаются ваша история записей к врачам.</p>
+      </div>
+      <div class="dst">
+        <div class="withdrawal-operation">
+          <div class="table">
+            <ul class="filter-block">
+              <li><a href="?{{ pg }}{{ og }}">Все</a></li>
+              <li><a href="?{{ pg }}&filter=1{{ og }}">Открытые</a></li>
+              <li><a href="?{{ pg }}&filter=2{{ og }}">Закрытые</a></li>
+            </ul>
+  
+            <div class="head">
+              <h2 class="head-title">История записей</h2>
+              <div class="filter">
+                Фильтр: <span id="filter-text">{{ filter_text }}</span><img src="/static/images/arr-ico.png">
+              </div>
+            </div>
+            <table>
+              <thead class="tbl-head-order">
+                <td>
+                  <a href="?{{ pg }}{{ fg }}&order=1" class="date-link" data-is-active="true"> <nobr>Дата и время</nobr>
+                  </a>
+                </td>
+                <td>
+                  <a href="?{{ pg }}{{ fg }}&order=2" class="date-link">Специаль<wbr>ность
+                  </a>
+                </td>
+                <td>
+                  <a href="?{{ pg }}{{ fg }}&order=3" class="date-link">ФИО врача
+                  </a>
+                </td>
+                <td>Статус</td>
+                <td>Отмена</td>
+              </thead>
+              <tbody>
+                {% for item in records %}
+                <tr>
+                  <td>{{ item.time }}</td>
+                  <td>{{ item.doctor.specialty }}</td>
+                  <td>{{ item.doctor.name }}</td>
+                  <td>
+                    {{ item.status }}
+                  </td>
+                  <td class="annulment">
+                    {% if item.status == 'Открыт' %}
+                    <div class="annulment-block" data-rec-id="{{ item.id }}" >
+                      <img src="/static/images/delete.png" alt="Отменить запись">
+                    </div>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% if not records %}
+              <div class="no-records">Записей нет</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="pagination">
+          {% if records.has_other_pages %}
+            {% if records.has_previous %}
+                <a href="?page={{ records.previous_page_number }}{{ fg }}{{ og }}">&laquo;</a>
+            {% else %}
+                <a href="#" class="disabled">&laquo;</a>
+            {% endif %}
+            {% for num in records.paginator.page_range %}
+                {% if num == records.number %}
+                    <span class="current">{{ num }}</span>
+                {% else %}
+                    <a href="?page={{ num }}{{ fg }}{{ og }}">{{ num }}</a>
+                {% endif %} 
+            {% endfor %}
+            {% if records.has_next %}
+                <a href="?page={{ records.next_page_number }}{{ fg }}{{ og }}">&raquo;</a>
+            {% else %}
+                <a href="#" class="disabled">&raquo;</a>
+            {% endif %} 
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- модалка на подтверждение отмены записи -->
+  <div id="annulment-dialog" style="display: none;">
+    <span class="close"></span>
+    <h1>Отмена записи</h1>
+    <p>В случае отмены записи, это время может занять другой человек.</p>
+    <p>
+      Вы уверены что хотите отменить запись?
+    </p>
+    <div class="separator20"></div>
+    <p>
+      <a href="javascript:;" class="btn green-button" id="annulment-button">Подтвердить</a>
+      <a href="javascript:;" class="btn gray-button" id="modal-close-button">Отмена</a>
+    </p>	
+  </div>
+</div>
+
+{% endblock %}

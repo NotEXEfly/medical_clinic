@@ -1,0 +1,437 @@
+@font-face {
+  font-family: "UniSansHeavy";
+  src: url("../fonts/UniSansHeavy/UniSansHeavy.eot");
+  src: url("../fonts/UniSansHeavy/UniSansHeavy.eot?#iefix") format("embedded-opentype"), 
+  url("../fonts/UniSansHeavy/UniSansHeavy.woff") format("woff"), 
+  url("../fonts/UniSansHeavy/UniSansHeavy.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; 
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+body, html {height: 100%;}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.container {
+  max-width: 1110px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ MAIN-PAGE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+/* ---------------- HEADER ------------------ */
+.header {background-color: #272c30;}
+
+.header .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 572px;
+}
+
+/* Верхний контент */
+.navbar {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+}
+
+.navbar .logotip {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar .logotip img {
+  margin-right: 14px;
+  height: 100%;
+}
+
+.navbar .logotip .navbar-brand {
+    color: #fff;
+    font-size: 16px;
+    font-family: "UniSansHeavy";
+    text-decoration: none;
+}
+
+.navbar .btn {
+  float: left;
+  margin: 0 5px;
+}
+
+/* Центральный контент */
+.header .center-content {text-align: center;}
+
+.header .center-content .btn {
+  width: 100%;
+  max-width: 148px;
+  margin: 10px 2px 0;
+}
+
+.header .center-content .title {color: #fff;font-size: 36px;}
+
+.header .center-content p {
+  color: #a8abac;
+  font-size: 18px;
+  margin: 18px 0;
+}
+
+/* Нижний контент */
+.header .site-options {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0;
+  padding-bottom: 25px;
+}
+
+.header .site-options li {color: #fff;}
+
+.header .site-options li span {
+  line-height: 30px;
+  display: inline-block;
+  vertical-align: center;
+}
+
+/* Иконки */
+.site-options .ico {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+  width: 24px;
+  height: 24px;
+}
+
+.ico.btc-ico {background: url(../images/btc-ico.png) no-repeat;}
+.ico.litecoin-ico {background: url(../images/litecoin-ico.png) no-repeat;}
+.ico.wallet-ico {background: url(../images/wallet-ico.png) no-repeat;}
+.ico.cog-ico {background: url(../images/cog-ico.png) no-repeat;}
+/* ---------------- END HEADER ------------------ */
+
+/* ---------------- HOW-IT-WORK CONTAINER ------------------ */
+.how-it-work{
+  padding-top: 80px;
+  padding-bottom: 55px;
+  box-shadow: inset 0 60px 130px -115px #000;
+}
+
+.how-it-work h2 {
+  color: #1a1b1c;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 55px;
+  margin-bottom: .5rem;
+  margin-top: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.how-it-work .row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.how-it-work .row .col {
+  text-align: center;
+  width: 280px;
+  padding-bottom: 30px;
+  /* background-color: #eee; */
+}
+
+.how-it-work .col span {
+  color: #1a1b1c;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+
+.how-it-work .col p {
+  max-width: 280px;
+  width: 100%;
+  padding-top: 10px;
+  margin: 0 auto;
+  color: #1a1b1c;
+  font-size: 14px;
+  display: block;
+  line-height: 24px;
+}
+/* ---------------- END HOW-IT-WORK CONTAINER ------------------ */
+
+/* ------------------------- FOOTER ---------------------------- */
+
+.footer {
+  padding: 35px 0 0;
+  background: #262c2f;
+}
+
+.footer .row {display: flex;}
+.footer .description {max-width: 50%;}
+
+.footer p {
+  font-size: 14px;
+  color: #a8abac;
+  line-height: 24px;
+  display: block;
+  margin: 0;
+  padding: 0 0 30px;
+  max-width: 540px;
+}
+
+.footer .contacts {margin-left: 8%;}
+.footer .contact-div {padding: 15px;float: left;}
+
+.footer .soc {
+  color: #ffffff;
+  font-size: 14px;
+  display: block;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+.footer .soc:before {
+  content: '';
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+.footer .phone:before {background: url(../images/phone.png) no-repeat center center;}
+.footer .mail:before {background: url(../images/mail.png) no-repeat center center;}
+.footer .telegram:before {background: url(../images/telegram.png) no-repeat;}
+.footer .skype:before {background: url(../images/skype.png) no-repeat;}
+/* ------------------------- END FOOTER ---------------------------- */
+
+/* ------------------------- COPYRIGHT ---------------------------- */
+.copyright {background: #32383c;padding: 15px;}
+.copyright p {font-size: 14px;color: #5b6063;margin: 0;}
+.copyright span {font-size: 14px;color: #a8abac;}
+.copyright .row div:first-child {width: 50%;float: left;}
+.copyright .row div:last-child {float: left; margin-left: 8%;}
+.copyright a {margin-left: 10px;}
+/* ------------------------- END COPYRIGHT ---------------------------- */
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ END MAIN PAGE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ REG AND LOGIN PAGE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+.auth {
+  background: #f0f4f7;
+}
+.auth-header .container {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.auth-header {
+  height: 54px;
+  background-color: #fff;
+}
+
+.auth-header .navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-family: "UniSansHeavy";
+  text-decoration: none;
+  color: #55c476;
+}
+
+.auth-header .site-logo {
+  width: 34px;
+  height: 34px;
+  margin-right: 14px;
+}
+
+.form-box {
+  box-sizing: border-box;
+  padding: 36px 0 30px;
+}
+
+.form-box .registration {
+  box-sizing: border-box;
+  overflow: hidden;
+  max-width: 370px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 #dbdee0;
+  padding: 0 25px 25px;
+}
+
+.form-box .registration .title {
+  color: #1a1b1c;
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.form-box .registration form label {
+  color: #1a1b1c;
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.form-box .registration span {
+  color: #1a1b1c;
+  font-size: 14px;
+  padding-top: 15px;
+  display: block;
+}
+
+.form-box .registration span a {
+  color: #1a1b1c;
+  text-decoration: underline;
+}
+
+.form-box .registration span a:hover {
+  text-decoration: none;
+}
+
+.form-box .registration form input {
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background: #f7fafc;
+  outline: none;
+  padding-left: 10px;
+  box-shadow: inset 0 3px 5px -1px #ccc;
+  font-family: inherit;
+}
+
+.form-box .registration form .btn {margin-top: 15px;}
+
+.form-box .registration .text {
+  display: none;
+  background: #f7fcff;
+  border: 1px solid #f44336;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.form-box .registration .text p {
+  color: #f44336;
+  font-size: 14px;
+  padding: 10px;
+  margin: 0;
+  line-height: 16px;
+  text-align: center;
+}
+
+/* reg */
+.form-box .registration #id_avatar {
+  padding-top: 8px;
+}
+
+#output img{
+  width: 100%;
+}
+
+
+.user-auth a {
+  text-decoration: none;
+  color: blue;
+}
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ END REG AND LOGIN PAGE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+
+/* ------------------------- MEDIA ---------------------------- */
+@media screen and (max-width: 991px) {
+  .header .site-options {display: flex;justify-content: space-between;}
+  .header .site-options li {margin: 0 5px; padding-bottom: 8px;}
+  .footer .row {flex-direction: column;align-items: center;}
+  .footer .description {max-width: 80%;}
+  .footer .description p {max-width: 100% !important;}
+  .footer .contacts {margin: 0;}
+}
+
+@media screen and (max-width: 767px) {
+  .copyright .row div:last-child {margin-left: 0;}
+}
+@media screen and (max-width: 540px) {
+  .header .site-options {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* ------------------------- ----- ---------------------------- */
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #a8abac;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid #7d8082;
+  transition: all 0.5s; 
+}
+.btn:hover {
+  color: #55c476;
+  border: 1px solid #55c476; 
+}
+.btn.green-btn {
+  border: none;
+  color: #fff;
+  background: #55c476;
+  border: 1px solid #55c476; 
+}
+.btn.green-btn:hover {
+  background: #fff;
+  color: #55c476; 
+}
+.btn.dark-btn {
+  border: 1px solid #1a1b1c;
+  color: #1a1b1c; 
+}
+
+#reg-button {
+  cursor: pointer;
+  display: block;
+}
+
+
+
+
+::-webkit-scrollbar-button {
+  background-image:url('');
+  background-repeat:no-repeat;
+  width:5px;
+  height:0px
+}
+::-webkit-scrollbar-track {background-color:#ecedee}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  background-color:#55c476;
+}
+::-webkit-scrollbar-thumb:hover{background-color:#4ba967;}
+::-webkit-resizer{
+  background-image:url('');
+  background-repeat:no-repeat;
+  width:6px;
+  height:0px
+}
+
+::-webkit-scrollbar{width:6px;}

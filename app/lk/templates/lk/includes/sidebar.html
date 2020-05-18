@@ -1,0 +1,42 @@
+
+<section class="sidebar">
+    <div id="humburger-menu"><span class="burger-arrow"></span></div>
+    {% if user.is_authenticated %}
+    <div class="username">
+      {% if user.profile.avatar %}
+      <div class="img-container"><img src="{{ user.profile.avatar.url }}"></div>
+      {% else %}
+      <div class="img-container"><img src="/media/default.png"></div>
+      {% endif %}
+
+      <a href="javascript://0" class="link">Здравствуйте,<br>{{ user.profile.get_only_firstname }}<span class="sidebar-arrow"></span>
+      </a>
+      <div class="dropdown">
+        <a href="/">На главную</a>
+        <a href="/lk">Личные данные</a>
+        {% if user.is_staff %}
+        <a href="/admin/">Админ панель</a>
+        {% endif %}
+        <a href="/logout/">Выход</a>
+      </div>
+    </div>
+    {% else %}
+    <div class="username">
+      <a href="/login/" class="log-btn">Войти</a>
+      <div class="dropdown" style="display: block;">
+        <a href="/">На главную</a>
+      </div>
+    </div>
+    {% endif %}
+    <div class="menu">
+      <ul>
+        {% if user.is_authenticated %}
+        <li class="history-li"><a href="/lk/history"><i class="ico book"></i> История записей</a></li>
+        <li class="record-li"><a href="/lk/record"><i class="ico purse"></i> Записаться к врачу</a></li>
+        {% endif %}
+        <li class="schedule-li"><a href="/lk/schedule"><i class="ico purchase"></i> Расписание врачей</a></li>
+        <li class="contact-li"><a href="/lk/contact"><i class="ico icontact"></i> Обратная связь</a></li>
+        <li class="info-li"><a href="/lk/info"><i class="ico exclamation"></i> О услугах</a></li>
+      </ul>
+    </div>
+  </section>

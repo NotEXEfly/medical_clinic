@@ -1,0 +1,14 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}Личный кабинет{% endblock %}
+
+{% block content %}
+  <section class="lk-content">
+   <div class="wrap warnings-page">
+      <p class="alert alert-danger">Произошла ошибка</p>
+      <p class="alert alert-warning warning_msg">{{ error_msg }}</p>
+      <a href="{{ old_link }}" class="btn">Вренуться обратно</a>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

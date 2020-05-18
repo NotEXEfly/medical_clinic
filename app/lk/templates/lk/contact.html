@@ -1,0 +1,51 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}Обратная связь{% endblock %}
+
+{% block content %}
+
+  <section class="lk-content">
+    <div class="wrap contact">
+
+      <h2 class="title">Форма обратной связи</h2>
+
+      <div class="add-balance-info">
+        <p>Если у вас возникли вопросы, напишите в службу обратной связи:</p>
+      </div>
+
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+      <div>
+        <label for="id_subject">Тема:</label>
+        {{ form.subject.errors }}
+        {{ form.subject }}
+      </div>
+      <div>
+        <label for="id_sender">E-mail:</label>
+        {{ form.sender.errors }}
+        {{ form.sender }}
+      </div>
+      <div>
+        <label for="id_message">Сообщение:</label>
+        {{ form.message.errors }}
+        {{ form.message }}
+      </div>
+      <input class="contact-btn" type="submit" value="Отправить"/>
+    </form>
+    <div class="h-block" style="display: none;">{{ valid_status }}</div>
+    </div>
+  </section>
+  
+  <!-- модалка об успешном запросе в обратную связь -->
+  <div id="contact-dialog" style="display: none;">
+    <!-- <span class="close"></span> -->
+    <h1>Обратная связь</h1>
+    <p>Ваш вопрос успешно доставлен и в скором времени на вашу почту придет ответ.</p>
+    <div class="separator20"></div>
+    <p>
+      <a href="/" class="btn green-button">На главную</a>
+    </p>	
+  </div>
+</div>
+
+{% endblock %}

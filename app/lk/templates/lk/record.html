@@ -1,0 +1,74 @@
+{% extends "lk/wrapper.html" %}
+{% block title %}Запись на приём{% endblock %}
+
+{% block content %}
+
+  <section class="lk-content">
+	  <div class="wrap">
+		  <h2 class="title">Записаться на приём</h2>
+		  <div class="add-balance-info">
+			<p>Текущий доктор: <a href="info">{{doctor.name}}</a></p>
+			</div>
+			<div class="timetable">
+				<p class="timetable-date">{% now "j M" %} - {{ now_plus_five|date:"j M" }}</a></p>
+				<table>
+					<tbody>
+					<tr>
+						{% for day in one_weekday %}		
+						<th>{{day|date:"j M"}}<p>{{day|date:"D"}}</p></th>
+						{% endfor %}
+					</tr>
+					{% for day_1, day_2, day_3, day_4, day_5, day_6, day_7 in timetbl %}
+					<tr>
+						<td class="{{day_1.class}}" data-ftime="{{day_1.time|date:"d-m-y-G-i"}}" rel="{{day_1.time|date:"d b, l G:i"}}">{{day_1.time|date:"G:i"}}</td>
+						<td class="{{day_2.class}}" data-ftime="{{day_2.time|date:"d-m-y-G-i"}}" rel="{{day_2.time|date:"d b, l G:i"}}">{{day_2.time|date:"G:i"}}</td>
+						<td class="{{day_3.class}}" data-ftime="{{day_3.time|date:"d-m-y-G-i"}}" rel="{{day_3.time|date:"d b, l G:i"}}">{{day_3.time|date:"G:i"}}</td>
+						<td class="{{day_4.class}}" data-ftime="{{day_4.time|date:"d-m-y-G-i"}}" rel="{{day_4.time|date:"d b, l G:i"}}">{{day_4.time|date:"G:i"}}</td>
+						<td class="{{day_5.class}}" data-ftime="{{day_5.time|date:"d-m-y-G-i"}}" rel="{{day_5.time|date:"d b, l G:i"}}">{{day_5.time|date:"G:i"}}</td>
+						<td class="{{day_6.class}}" data-ftime="{{day_6.time|date:"d-m-y-G-i"}}" rel="{{day_6.time|date:"d b, l G:i"}}">{{day_6.time|date:"G:i"}}</td>
+						<td class="{{day_7.class}}" data-ftime="{{day_7.time|date:"d-m-y-G-i"}}" rel="{{day_7.time|date:"d b, l G:i"}}">{{day_7.time|date:"G:i"}}</td>
+					</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+	  </div>
+	</section>
+	<!-- Модалка -->
+	<div id="dialog">
+		<span class="close"></span>
+		<h1>{{user.profile.fio}}
+			<br>
+			<small>Записан к врачу</small>
+		</h1>
+		<p>
+			<span class="label">Специальность:</span>
+			<span class="labelVal">{{doctor.specialty}}</span>
+		</p>
+		<p>
+			<span class="label">Специалист:</span>
+			<span class="labelVal">{{doctor.name}}</span>
+		</p>
+		<p>
+			<span class="label">Дата и время:</span>
+			<span class="record-datetime">фыввыф</span>
+		</p>
+		<p>
+			<span class="label">Кабинет:</span>
+			<span class="labelVal">{{doctor.room}}</span>
+		</p>
+		<hr>
+		<div id="agree-msg">
+			<p><input type="checkbox" id="agree"><label class="agree space" for="agree">Подтвердить данные</label></p>
+		</div>
+
+		<div class="separator20"></div>
+		<p>
+			<a href="javascript:;" class="btn green-button disabled" id="record-button">Подтвердить</a>
+			<a href="javascript:;" class="btn gray-button" id="modal-close-button">Отменить</a>
+		</p>	
+	</div>
+
+</div>
+
+{% endblock %}
